@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MovieController!{% endblock %}
+
+{% block header %}
+    My Movies
+{% endblock %}
+
+{% block content_left %}
+<h2>Hello {{ controller_name }}! ✅</h2>
+<h5>Created, Oct 11, 2021</h5>
+<p>This friendly message is coming from:</p>
+<div>
+    <div>
+        <ul>
+            <li>Import movies into data base
+                <code>
+                    {{ include('movie/_import.html.twig') }}
+                </code>
+            </li>
+            <li>
+                <a href="{{ path('app_movie_list') }}">Movie Overview</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul>
+            <li>Update movies from extern
+                <code>
+                    {{ include('movie/_update.html.twig') }}
+                </code>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

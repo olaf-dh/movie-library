@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie Overview{% endblock %}
+
+{% block navigation %}
+    {{ parent() }}
+    <a href="{{ path('app_movie_edit', {id: movie.id}) }}">Eintrag bearbeiten</a>
+{% endblock %}
+
+{% block content_left %}
+    <div class="leftcolumn">
+        <div class="card">
+            <h2>{{ movie.title }}</h2>
+            <h5>Released at theaters in {{ movie.year }}</h5>
+            <div class="fakeimg">
+                <video controls width="100%" autoplay="off">
+                    <source src="{{ path_to_video }}{{ movie.directory | url_encode }}/{{ movie.fileName | url_encode }}.{{ movie.fileType }}">
+                </video>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content_right %}
+    <div class="rightcolumn">
+        <div class="card">
+            <div class="fakeimg" style="text-align: center;">
+                <img src="{{ path_to_video }}{{ movie.directory }}/{{ movie.imageFile }}" width="350px" alt="{{ movie.fileName }}">
+            </div>
+        </div>
+    </div>
+{% endblock %}

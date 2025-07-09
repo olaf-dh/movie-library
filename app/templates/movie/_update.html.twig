@@ -1,0 +1,32 @@
+{#
+{{ form_start(updateForm, {
+    attr: {'novalidate': true}
+}) }}
+<div class="row">
+    <div class="col-3">
+        {{ form_row(updateForm.updateType, {
+            label: 'Einzel- oder Mehrfachaktualisierung'
+        }) }}
+    </div>
+
+    <div class="col-3">
+        {{ form_row(updateForm.attribute, {
+            label: 'Attribut zum aktualisieren'
+        }) }}
+    </div>
+
+    <div class="col-3">
+        {{ form_row(updateForm.limit, {
+            label: 'Anzahl für die Ausgabe'
+        }) }}
+    </div>
+
+    <div class="col-3">
+        {{ form_row(updateForm.offset, {
+            label: 'Startdatensatz'
+        }) }}
+    </div>
+</div>
+
+{{ form_end(updateForm) }}
+#}

@@ -1,0 +1,25 @@
+
+###> phpunit/phpunit ###
+phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+# Symfony / Composer
+.env.local
+.env.test.local
+
+var/
+vendor/
+mediaFiles/
+public/bundles/
+node_modules/
+
+# Encore/Webpack
+public/build
+yarn.lock
+
+# IDE
+.idea/
+
+# Systemdateien
+.DS_Store

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movie Overview{% endblock %}
+
+{% block content_left %}
+    <div class="fullcolumn">
+        <div class="card">
+            <h2>Liste der Filme</h2>
+            <div class="fakeimg" style="margin-bottom: 1em;">
+                <table id="movies">
+                    <thead>
+                    <tr>
+                        <th>Titel</th>
+                        <th>Inhalt</th>
+                        <th>Jahr</th>
+                        <th>Genre</th>
+                        <th>Länge</th>
+                        <th>Aktion</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for movie in pager %}
+                        <tr>
+                            <td style="width: 2ß%;">{{ movie.title }}</td>
+                            <td>{{ movie.plot [:250]}} ...</td>
+                            <td style="width: 5%;">{{ movie.year }}</td>
+                            <td>
+                               <ul>
+                                   {% for genre in movie.genres %}
+                                       <li>{{ genre.name|upper }}</li>
+                                   {% endfor %}
+                               </ul>
+                            </td>
+                            <td style="width: 6%;">{{ movie.length }} min</td>
+                            <td style="width: 5%;">
+                                <a href="{{ path('app_movie_show', {id: movie.id}) }}">
+                                    Ansehen
+                                </a>
+                                &nbsp;
+                                <a href="{{ path('app_movie_edit', {id: movie.id}) }}">
+                                    Bearbeiten
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {{ pagerfanta(pager) }}
+        </div>
+    </div>
+{% endblock %}

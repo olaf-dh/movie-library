@@ -1,0 +1,14 @@
+data/sql
+.env.local
+
+# DDEV
+.ddev/.dbimageBuild
+.ddev/.webimageBuild
+.ddev/.downloads/
+.ddev/db_snapshots/
+
+# IDE
+.idea
+
+# Systemdateien
+.DS_Store

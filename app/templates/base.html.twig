@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+    <div class="topnav {{ app.session.flashBag.peek('success')|length > 0 ? '' : 'mb-5' }}">
+        {% block navigation %}
+            <a href="{{ path('app_movie_list') }}">Liste der Filme</a>
+            <a href="{{ path('app_movie_new') }}">Neuer Eintrag</a>
+            <a href="{{ path('app_movie') }}" style="float:right">Home</a>
+        {% endblock %}
+    </div>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <div class="row">
+        {% block content_left %}{% endblock %}
+        {% block content_right %}{% endblock %}
+    </div>
+    {% block footer %}
+        <div class="footer">
+            &copy;&nbsp;2022 Movie Library - oH-iT dev
+        </div>
+    {% endblock %}
+    </body>
+</html>

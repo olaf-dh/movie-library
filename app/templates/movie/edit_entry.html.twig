@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update Movie{% endblock %}
+
+{% block navigation %}
+    <a href="{{ path('app_movie_list') }}">Liste der Filme</a>
+    <a href="{{ path('app_movie_update', {id: id}) }}">Diesen Film aktualisieren</a>
+    <a href="{{ path('app_movie_new') }}">Neuer Eintrag</a>
+    <a href="{{ path('app_movie') }}" style="float:right">Home</a>
+{% endblock %}
+
+{% block content_left %}
+    <div class="fullcolumn">
+        <div class="card">
+            <h2>Film bearbeiten</h2>
+            <div class="fakeimg">
+                {{ include('movie/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

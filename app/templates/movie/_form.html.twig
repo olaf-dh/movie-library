@@ -1,0 +1,67 @@
+{{ form_start(movieForm, {
+    attr: {'novalidate': true}
+}) }}
+    <div class="row">
+        <div class="col-3">
+            {{ form_row(movieForm.title, {
+                label: 'Filmtitel in Originalsprache'
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(movieForm.file_name, {
+                label: 'Name der Filmdatei (ohne Endung)'
+            }) }}
+        </div>
+        <div class="col-1">
+            {{ form_row(movieForm.file_type, {
+                label: 'Dateiendung'
+            }) }}
+        </div>
+        <div class="col-2">
+            {{ form_row(movieForm.file_size, {
+                label: 'Größe in MB'
+            }) }}
+        </div>
+        <div class="col-2">
+            {{ form_row(movieForm.year, {
+                label: 'Erscheinungsjahr'
+            }) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            {{ form_row(movieForm.directory, {
+                label: 'bestehender Ordnername'
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(movieForm.length, {
+                label: 'Länge des Films in Minuten'
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(movieForm.subtitle_file, {
+                label: 'Datei der Untertitel'
+            }) }}
+        </div>
+        <div class="col-3">
+            {{ form_row(movieForm.image_file, {
+                label: 'Datei vom Filmplakat'
+            }) }}
+        </div>
+    </div>
+<div class="row">
+    <div class="col-3">
+        {{ form_row(movieForm.genres, {
+            label: 'Genre des Films (Mehrfachauswahl möglich)'
+        }) }}
+    </div>
+    <div class="col-9">
+        {{ form_row(movieForm.plot, {
+            label: 'kurze Zusammenfassung der Handlung',
+            attr: {'rows': 15}
+        }) }}
+    </div>
+</div>
+<button type="submit" class="btn btn-primary">Save</button>
+{{ form_end(movieForm) }}
